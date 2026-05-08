@@ -1,0 +1,368 @@
+/* --- Premium Modern Cinematic Theme --- */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body { 
+    font-family: 'Outfit', sans-serif; 
+    /* Immersive movie theater interior background with a dark overlay for text contrast */
+    background: 
+        linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
+        url("https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=2070&auto=format&fit=crop");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0; 
+    padding: 0;
+    color: #f1f5f9;
+}
+
+/* Base flex container for centering the login form */
+.container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Form and Card styles */
+form, .card { 
+    /* Frosted Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 40px 30px; 
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 380px; 
+    text-align: center;
+}
+
+/* Centering fallback if bare form is used without container */
+body > form {
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card h2, form h2 {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 32px;
+    letter-spacing: 0.5px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #cbd5e1;
+    font-weight: 600;
+}
+
+input { 
+    width: 100%; 
+    padding: 14px 16px;
+    margin-bottom: 20px; 
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+input:focus {
+    outline: none;
+    border-color: #3b82f6; /* Modern Blue Accent */
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+button, input[type="submit"] { 
+    padding: 14px 24px;
+    font-size: 16px; 
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px; 
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    /* Vibrant modern gradient */
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+button:hover, input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+}
+
+button:active, input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Movie Application Container */
+#moviePage {
+    padding: 40px 20px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    display: none; /* Controlled by JS */
+}
+
+#moviePage h1 {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: -1px;
+    margin-bottom: 40px;
+}
+
+/* Enhanced search bar format */
+#moviePage > div {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+#moviePage input {
+    width: auto;
+    min-width: 320px;
+    margin: 0;
+}
+
+#moviePage button {
+    width: auto;
+    margin: 0;
+    padding: 14px 32px;
+}
+
+/* Movies Grid Layout */
+#movieList {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px; 
+    list-style: none;
+    padding: 0;
+}
+
+/* Individual Movie cards */
+.movie-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2); 
+    overflow: hidden;
+    text-align: center; 
+    padding-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Bouncy modern animation transition */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    border-color: rgba(59, 130, 246, 0.3); /* Subtle blue glow outline */
+}
+
+.movie-card img { 
+    width: 100%; 
+    height: 360px;
+    object-fit: cover; 
+    transition: transform 0.6s ease;
+}
+
+.movie-card:hover img {
+    transform: scale(1.08); /* Zoom effect on image text */
+}
+
+.movie-card h3 {
+    margin: 20px 15px 5px;
+    color: #f8fafc;
+    font-size: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-card p {
+    color: #94a3b8;
+    font-size: 14px;
+    margin: 8px 0;
+}
+
+/* Header Actions */
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.header-actions button {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin: 0;
+    border-radius: 8px;
+}
+
+/* Fav button on cards */
+.movie-card {
+    position: relative;
+}
+
+.fav-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+    z-index: 10;
+    color: white;
+}
+
+.fav-btn:hover {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.fav-btn.active {
+    color: #ffd700;
+}
+
+.movie-card img, .movie-card h3 {
+    cursor: pointer;
+}
+
+/* Modal Styling */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.8); 
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    padding: 30px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    position: relative;
+    color: white;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close {
+    color: #94a3b8;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+}
+
+.modal-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.modal-poster {
+    border-radius: 12px;
+    max-width: 250px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.modal-info {
+    flex: 1;
+}
+
+.modal-info h2 {
+    margin-top: 0;
+    color: #3b82f6;
+    font-size: 28px;
+}
+
+.modal-info p {
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.plot-box {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #3b82f6;
+}
+
+@media (max-width: 768px) {
+    .modal-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+    .modal-poster {
+        max-width: 200px;
+    }
+}
