@@ -17,7 +17,7 @@ A modern, full-stack web application that allows users to search for movies, vie
 - **Frontend:** HTML5, Vanilla JavaScript, Custom CSS (Glassmorphism design)
 - **Backend:** Node.js, Express.js
 - **Security:** `bcryptjs` for cryptographic password hashing
-- **Data Storage:** Local JSON filesystem (`user.json`)
+- **Data Storage:** MongoDB Atlas (Cloud Database)
 - **External APIs:** OMDb API (Open Movie Database)
 
 ## 🚀 Getting Started
@@ -41,7 +41,14 @@ You must have [Node.js](https://nodejs.org/) installed on your computer.
    npm install
    ```
 
-3. **Start the backend server:**
+3. **Set up Environment Variables:**
+   Create a `.env` file in the root of the project and add the following keys:
+   ```env
+   MONGODB_URI=your_mongodb_atlas_connection_string
+   OMDB_API_KEY=your_omdb_api_key
+   ```
+
+4. **Start the backend server:**
    ```bash
    node server.js
    ```
